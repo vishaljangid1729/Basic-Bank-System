@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Your Account</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../static/content/bank.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div style="position: absolute; margin-left: 20%; color: rgb(150,150,150)">
+        <h1> {{msg}} </h1>
+    </div>
+    
+
+
+    <div id="nav">
+        <h1 style="color: rgb(150,150,150);">Welcome {{ name }}</h1>
+        <div class="menu" id="transfer">Transfer</div>
+        <div class="menu" id="deposit">Deposit</div>
+        <div class="menu" id="withdrawal">Withdrawal</div>
+        <div class="menu" id="statement">Statement</div>
+        <div class="menu" id="balance" >Balance</div>
+        <div class="menu" id="logout">Logout</div>
+    </div>
+
+
+    <div id="balnace_menu">
+        <div>
+            <p>Your Balance: {{bal}} $ </p>
+        </div>
+        <div id="ok">Ok</div>
+    </div>
+
+    <div id="transfer_menu">
+        <form action="{{url_for('transfer')}}" id="trans_form" method="POST">
+            <input type="text" name="acc_id" id="acc_id" placeholder="Account ID" required ><br>
+            <input type="number" name="amount" id="amount" placeholder="Amount" required><br>
+            <button type="submit">Send</button>
+            <button class="cancel" type="button" id="cancel_transfer">Cancel</button>
+        </form>
+    </div>
+    <div id="deposit_menu">
+        <form action="{{url_for('deposit')}}" id="trans_form" method="POST">
+
+            <input type="number" name="amount" id="amount" placeholder="Amount" required><br>
+            <button type="submit">Deposit</button>
+            <button class="cancel" type="button" id="cancel_deposit" >Cancel</button>
+        </form>
+    </div>
+    <div id="wit_menu">
+        <form action="{{ url_for('withdrawal') }}" id="trans_form" method="POST">
+
+            <input type="number" name="amount" id="amount" placeholder="Amount" required><br>
+            <button type="submit">Withdrawal</button> 
+            <button class="cancel" type="button" id="cancel_wid">Cancel</button>
+        </form>
+    </div>
+    <div id="statement_menu">
+        <table>
+
+            <tr>
+
+                <th>Narration</th>
+                <th>Debit</th>
+                <th>Credit</th>
+                <th>Balance</th>
+
+            </tr>
+            {% for row in rows %}
+            <tr>
+                <td>{{row["mode_id"]}}</td>
+                <td>{{row["debit"]}}</td>
+                <td> {{ row["credit"]}}</td>
+                <td>{{row['total_bal']}}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+
+    <script src="../static/scripts/bank.js"></script>
+
+    
+</body>
+</html>

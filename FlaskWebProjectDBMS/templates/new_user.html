@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>New_user</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../static/content/new_user.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div id="form_box">
+        <form action="{{ url_for('login') }}" method="POST">
+            <div class="input" style="display: block;">
+                <input type="text" name="f_name" id="f_name" placeholder="First Name" required spellcheck="false">
+            </div>
+            <div class="input">
+                <input type="text" name="l_name" id="l_name" placeholder="Last Name" required spellcheck="false">
+            </div>
+            <div class="input">
+                <input type="text" name="acc_id" id="acc_id" placeholder="Account ID" required spellcheck="false">
+            </div>
+            <div class="input">
+                <input type="tel" name="mobile" id="mobile" placeholder="Mobile Number" required spellcheck="false">
+            </div>
+            <div class="input">
+                <input type="email" name="email" id="email" placeholder="Email" required spellcheck="false">
+            </div>
+            <div class="input">
+                <input type="password" name="password" id="password" placeholder="Password" required spellcheck="false">
+            </div>
+            <div class="input">
+                <input type="password" name="con_password" id="con_password" placeholder="Confirm Password" required spellcheck="false">
+            </div>
+
+            <div>
+                <div id="next">Next</div>
+            </div>
+            <div>
+                <button id="sumbit">Create Account</button>
+            </div>
+        </form>
+    </div>
+
+
+
+    <script src="../static/scripts/new_user.js"></script>
+   
+</body>
+</html>
